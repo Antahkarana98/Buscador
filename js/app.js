@@ -1,18 +1,19 @@
 const resultado = document.querySelector('#resultado');
 
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarAutos();
-    console.log('hola');
+    mostrarAutos(); // muestra los automoviles al cargar
 })
 
 function mostrarAutos() {
-    autos.forEach( auto => {
-        const {marca, modelo, year, precio, puertas, color, trasmision} = auto;
+  autos.forEach( auto => {
+    const {marca, modelo, year, precio, puertas, color, transmision} = auto;
 
-        const autoHTML = document.createElement('P');
+    const autoHTML = document.createElement('p');
 
-        autoHTML.textContent = `
-        	${marca} ${modelo} - ${year} - ${precio} - ${puertas} - ${color} - ${trasmision}
-        `;
-    })
+    autoHTML.textContent = `
+      ${marca} ${modelo} - ${year} - ${precio} - ${puertas} - ${color} - ${transmision}
+    `;
+    // inserta el html
+    resultado.appendChild(autoHTML);
+  })
 }
