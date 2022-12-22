@@ -112,7 +112,21 @@ function filtrarAuto(){
   //const resultado = autos.filter( auto => auto.marca === marca ); forma simple
   const resultado = autos.filter( filtrarMarca ).filter( filtrarYear ).filter( filtrarMinimo ).filter( filtrarMaximo ).filter( filtrarPuertas ).filter( filtrarTransmision ).filter( filtrarColor ); // forma con funciones de alto nivel
 
-  mostrarAutos(resultado);
+  if(resultado.length){
+    mostrarAutos(resultado);
+  }else{
+    noResultados();
+  }
+}
+
+function noResultados() {
+  limpiarHTML();
+
+  const noResultados = document.createElement("div");
+  noResultados.classList.add("alerta", "error");
+  noResultados.textContent = "No hay resultados";
+
+  resultado.appendChild(noResultados);
 }
 
 function filtrarMarca(auto) {
